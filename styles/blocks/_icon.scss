@@ -1,0 +1,33 @@
+@use '../helpers' as *;
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    column-gap: rem(10);
+
+    &::after {
+        --size: #{rem(24)};
+
+        @include square(var(--size));
+
+        content: '';
+        flex-shrink: 0;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        @include laptop {
+            --size: #{rem(20)};
+        }
+    }
+
+    &--black-arrow {
+        &::after {
+            background-image: url('../../icons/arrow-top-right__black.svg');
+        }
+
+        @include hover {
+            box-shadow: 0 0 10px var(--color-accent);
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "aum-stone",
+  "version": "1.0.0",
+  "description": "aum stone site",
+  "homepage": "https://github.com/69rem/aum-stone#readme",
+  "bugs": {
+    "url": "https://github.com/69rem/aum-stone/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/69rem/aum-stone.git"
+  },
+  "license": "ISC",
+  "author": "Maxim Morozov",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-watch": "sass --watch ."
+  },
+  "devDependencies": {
+    "sass": "^1.93.2"
+  },
+  "dependencies": {
+    "imask": "^7.6.1"
+  }
+}

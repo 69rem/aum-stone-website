@@ -1,0 +1,143 @@
+@use "../helpers" as *;
+
+.slider {
+  position: relative;
+  user-select: none;
+  height: 100%;
+
+  &__container {
+    position: relative;
+    border-radius: rem(12);
+    overflow: hidden;
+    background: var(--bg-secondary);
+    box-shadow: 0 2px 30px rgba(232, 228, 219, 0.5);
+    cursor: grab;
+    height: 100%;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  &__track {
+    display: flex;
+    transition: transform 0.4s ease;
+    will-change: transform;
+    height: 100%;
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    position: relative;
+    height: 100%;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 0 rem(20);
+    pointer-events: none;
+
+    @include mobile {
+      padding: 0 rem(15);
+    }
+  }
+
+  &__button {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-default);
+    color: var(--color-accent);
+    padding: rem(12);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-duration);
+    position: relative;
+    pointer-events: all;
+    backdrop-filter: blur(5px);
+
+    &:hover:not(:disabled) {
+      background: var(--color-accent);
+      color: var(--color-dark);
+      border-color: var(--color-accent);
+      transform: scale(1.05);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.95);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    svg {
+      display: block;
+      width: rem(20);
+      height: rem(20);
+
+      @include mobile {
+        width: rem(16);
+        height: rem(16);
+      }
+    }
+
+    @include mobile {
+      padding: rem(8);
+    }
+  }
+
+  &__drag-indicator {
+    position: absolute;
+    bottom: rem(20);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: rem(8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    &--visible {
+      opacity: 1;
+    }
+  }
+
+  &__dot {
+    width: rem(6);
+    height: rem(6);
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+}
+
+.slider--dragging {
+  .slider__track {
+    transition: none;
+  }
+
+  .slider__drag-indicator {
+    opacity: 1;
+  }
+}

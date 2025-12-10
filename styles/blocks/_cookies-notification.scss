@@ -1,0 +1,103 @@
+@use "../helpers" as *;
+
+.cookies-notification {
+  position: fixed;
+  bottom: rem(20);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(17, 17, 17, 0.8);
+  box-shadow: 0 2px 30px rgba(232, 228, 219, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-default);
+  border-radius: rem(12);
+  padding: rem(20);
+  max-width: rem(500);
+  width: 90%;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  user-select: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0; 
+  transform: translateX(-50%) translateY(20px);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(232, 228, 219, 0.05) 50%,
+      transparent 100%
+    );
+    border-radius: rem(12);
+    z-index: -1;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: rem(20);
+    justify-content: space-between;
+
+    @include mobile {
+      flex-direction: column;
+      gap: rem(15);
+      text-align: center;
+    }
+  }
+
+  &__text {
+    color: var(--color-light);
+    font-size: rem(14);
+    line-height: 1.4;
+    margin: 0;
+    flex: 1;
+  }
+
+  &__link {
+    color: var(--color-accent);
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &__button {
+    background: var(--color-accent);
+    color: var(--color-dark);
+    border: none;
+    padding: rem(10) rem(20);
+    border-radius: rem(6);
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background: var(--color-light);
+      transform: scale(0.97);
+      box-shadow: 0 0 7px var(--color-light);
+    }
+  }
+}
+
+.cookies-notification--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.cookies-notification--hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+  pointer-events: none;
+}
+
+.cookies-notification--removed {
+  display: none;
+}

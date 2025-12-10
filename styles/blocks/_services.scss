@@ -1,0 +1,131 @@
+@use "../helpers" as *;
+
+.services {
+  &__main {
+    padding-block: rem(75);
+    filter: drop-shadow(0 2px 10px rgba(232, 228, 219, 0.3));
+
+    @include mobile {
+      padding-block: rem(50);
+    }
+  }
+
+  &--first-item {
+    background: linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.5)),
+      url("/images/services/1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    border-right: var(--border-divider);
+    border-top-left-radius: rem(52);
+    border-bottom-left-radius: rem(52);
+  }
+
+  &--second-item {
+    background: linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.5)),
+      url("/images/services/2.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    border-right: var(--border-divider);
+  }
+
+  &--third-item {
+    background: linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.5)),
+      url("/images/services/3.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    border-right: var(--border-divider);
+  }
+
+  &--fourth-item {
+    background: linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.5)),
+      url("/images/services/4.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    border-top-right-radius: rem(52);
+    border-bottom-right-radius: rem(52);
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media (width <= 1631px) {
+      padding-inline: rem(200);
+      gap: rem(20);
+    }
+
+    @include laptop {
+      padding-inline: rem(50);
+    }
+
+    @include mobile {
+      padding-inline: 0;
+    }
+
+    &--item {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      text-shadow: 0 0 10px var(--color-dark);
+      padding: rem(20);
+      height: rem(400);
+      width: rem(400);
+
+      @media (width <= 1631px) {
+        border-radius: rem(52);
+      }
+
+      @include laptop {
+        border-radius: rem(52);
+      }
+    }
+  }
+
+  &__item {
+    &--description {
+      text-align: center;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border-radius: rem(12);
+      box-shadow: 0 2px 30px rgba(232, 228, 219, 0.2);
+      background-color: rgba(17, 17, 17, 0.1);
+      padding: rem(2);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          transparent 0%,
+          rgba(232, 228, 219, 0.05) 50%,
+          transparent 100%
+        );
+        border-radius: rem(20);
+        z-index: -1;
+      }
+    }
+
+    &--title {
+      text-align: center;
+    }
+
+    &--line {
+      display: flex;
+      height: rem(2);
+      width: rem(100);
+      background-color: var(--color-light);
+      margin: rem(15) auto;
+    }
+  }
+}

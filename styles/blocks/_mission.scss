@@ -1,0 +1,148 @@
+@use "../helpers" as *;
+
+.mission {
+  padding-block: rem(75);
+
+  @include mobile {
+    padding-block: rem(50);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(80);
+    align-items: start;
+    margin-bottom: rem(60);
+
+    @include laptop {
+      gap: rem(60);
+    }
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: rem(40);
+    }
+
+    @include mobile {
+      row-gap: rem(20);
+    }
+  }
+
+  &__content {
+    color: var(--color-light);
+    padding-inline: rem(30);
+    padding-top: rem(20);
+    padding-bottom: rem(20);
+    box-shadow: 0 2px 30px rgba(232, 228, 219, 0.2);
+    background-color: rgba(17, 17, 17, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: rem(20);
+    max-height: rem(500);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        transparent 0%,
+        rgba(232, 228, 219, 0.05) 50%,
+        transparent 100%
+      );
+      border-radius: rem(20);
+    }
+
+    @include mobile {
+      text-align: center;
+      max-height: none;
+      height: auto;
+      padding-inline: rem(20);
+    }
+  }
+
+  &__title {
+    margin-bottom: rem(20);
+    color: var(--color-accent);
+
+    @include mobile {
+      margin-bottom: rem(30);
+      font-size: rem(24);
+    }
+  }
+
+  &__text {
+    line-height: 1.6;
+    margin-bottom: rem(40);
+    flex-grow: 1;
+  }
+
+  &__description {
+    margin-bottom: rem(20);
+    text-align: justify;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mobile {
+      margin-bottom: rem(20);
+      text-align: left;
+    }
+  }
+
+  &__highlight {
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: rem(20);
+    border-left: rem(3) solid var(--color-accent);
+    padding-left: rem(20);
+    text-align: left;
+    margin-top: rem(20);
+    
+    @include mobile-above {
+      white-space: nowrap;
+    }
+
+    @include mobile {
+      font-size: rem(18);
+      padding-left: rem(15);
+      text-align: left;
+      border-left: rem(2) solid var(--color-accent);
+    }
+  }
+
+  &__slider {
+    position: relative;
+    height: rem(500);
+
+    @include tablet {
+      height: rem(400);
+    }
+
+    @include mobile {
+      height: rem(300);
+      padding-top: rem(30);
+      border-top: var(--border);
+    }
+  }
+
+  &__consultation {
+    text-align: center;
+
+    .btn {
+      min-width: rem(300);
+
+      @include mobile {
+        min-width: auto;
+        width: 100%;
+      }
+    }
+  }
+}

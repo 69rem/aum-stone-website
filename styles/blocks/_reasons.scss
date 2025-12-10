@@ -1,0 +1,46 @@
+@use "../helpers" as *;
+
+.reasons {
+  &__main {
+    padding-block: rem(75);
+
+    @include mobile {
+      padding-block: rem(50);
+    }
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__card {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(rem(300), rem(350)));
+    gap: rem(60);
+    justify-content: center;
+
+    &--item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &--image {
+      filter: drop-shadow(0 2px 5px rgba(232, 228, 219, 0.4));
+    }
+
+    @media (width <=1023px) {
+      grid-template-columns: repeat(2, minmax(rem(300), rem(350)));
+
+      .item-wide {
+        grid-column: -1 / 1;
+      }
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+}

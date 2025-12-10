@@ -1,0 +1,33 @@
+@use "normalize";
+@use "fonts";
+@use "variables";
+@use "utils";
+@use "globals";
+
+@use "./blocks/header";
+@use "./blocks/button";
+@use "./blocks/burger-button";
+@use "./blocks/hero";
+@use "./blocks/icon";
+@use "./blocks/footer";
+@use "./blocks/introduction";
+@use "./blocks/delivery";
+@use "./blocks/stats";
+@use "./blocks/stones";
+@use "./blocks/directions";
+@use "./blocks/expert-selection";
+@use "./blocks/guarantees";
+@use "./blocks/reasons";
+@use "./blocks/objects";
+@use "./blocks/services";
+@use "./blocks/restoration";
+@use "./blocks/workflow";
+@use "./blocks/gallery";
+@use "./blocks/modal";
+@use "./blocks/consultation-form";
+@use "./blocks/slider";
+@use "./blocks/mission";
+@use "./blocks/contacts";
+@use "./blocks/notifications";
+@use "./blocks/cookies-notification";
+

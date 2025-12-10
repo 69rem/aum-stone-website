@@ -1,0 +1,126 @@
+@use "../helpers" as *;
+
+.restoration {
+  &__main {
+    padding-block: rem(75);
+
+    @include mobile {
+      padding-block: rem(50);
+    }
+
+    &--info {
+      display: flex;
+      justify-content: center;
+      margin-top: rem(35);
+      padding-inline: rem(16);
+      background-color: rgba(17, 17, 17, 0.2);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+      border-radius: rem(20);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding-block: rem(30);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          transparent 0%,
+          rgba(232, 228, 219, 0.05) 50%,
+          transparent 100%
+        );
+        border-radius: rem(20);
+      }
+
+      @include mobile {
+        padding-top: rem(20);
+        flex-direction: column;
+        padding-inline: rem(20);
+      }
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    max-width: rem(700);
+    padding-right: rem(20);
+    font-size: rem(20);
+    justify-content: center;
+    text-align: justify;
+
+    @include mobile {
+      text-align: center;
+      padding-right: 0;
+      padding-bottom: rem(20);
+      justify-content: center;
+      font-size: rem(16);
+    }
+  }
+
+  &__text {
+    padding-bottom: rem(10);
+  }
+
+  &__list {
+    padding-left: rem(20);
+    border-left: var(--border);
+
+    @include mobile {
+      border-left: none;
+      border-top: var(--border);
+      padding-left: 0;
+      padding-top: rem(20);
+    }
+
+    &--item {
+      padding-left: rem(35);
+      position: relative;
+      margin-bottom: rem(20);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: rem(30);
+        height: rem(30);
+        background-image: url(/images/directions/1.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        filter: drop-shadow(0 0 2px rgba(232, 228, 219, 0.5));
+      }
+
+      @media (width <= 1024px) {
+        font-size: rem(14);
+        margin-bottom: rem(12);
+      }
+    }
+  }
+
+  &__contact-us {
+    display: flex;
+    justify-content: center;
+    padding-top: rem(30);
+  }
+
+  &__button {
+    @include hover {
+      transition-duration: var(--transition-duration);
+      box-shadow: 0 0 15px var(--color-light);
+    }
+  }
+
+  &__title {
+    text-align: center;
+  }
+}

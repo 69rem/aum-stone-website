@@ -1,0 +1,47 @@
+@use "helpers" as *;
+
+:root {
+  --color-light: #e8e4db;
+  --color-dark: #1a1a1a;
+
+  --color-dark-10: #242424;
+  --color-dark-15: #2a2a2a;
+  --color-dark-20: #333333;
+  --color-dark-40: #666666;
+
+  --color-light-10: #f0ede5;
+  --color-light-20: #f5f3f0;
+  --color-light-30: #faf9f7;
+  --color-light-dark: #d1ccc0;
+
+  --color-gray-50: #8f8f8f;
+  --color-gray-60: #a5a5a5;
+  --color-gray-70: #bababa;
+  --color-gray-80: #d0d0d0;
+
+  --color-accent: #f0ede5;
+
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #242424;
+  --bg-tertiary: #2a2a2a;
+  --bg-card: #333333;
+
+  --border-default: rgba(232, 228, 219, 0.2);
+  --border-hover: rgba(232, 228, 219, 0.4);
+  --border-focus: rgba(232, 228, 219, 0.6);
+  --border-divider: #{rem(2)} #1a1a1a solid;
+
+  --font-family-base: "Inter", "sans-serif", Arial;
+  --font-family-accent: "Kumbh Sans", "sans-serif", Arial;
+
+  --border: #{rem(1)} #e8e4db solid;
+
+  --container-width: #{rem(1600)};
+  --container-padding-x: #{rem(16)};
+
+  --transition-duration: 0.2s;
+
+  @include laptop {
+    --container-width: #{rem(1280)};
+  }
+}

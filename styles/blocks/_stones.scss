@@ -1,0 +1,99 @@
+@use "../helpers" as *;
+
+.stones {
+  &__main {
+    padding-block: rem(75);
+
+    @include mobile {
+      padding-block: rem(50);
+    }
+  }
+
+  &__text {
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+
+    &.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__card {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding-top: rem(80);
+    gap: rem(50) rem(200);
+    grid-template-columns: repeat(4, auto);
+
+    &--item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 12.5rem;
+      user-select: none;
+      -webkit-transform: translate3d(0, 30px, 0) scale(0.8);
+      transform: translate3d(0, 30px, 0) scale(0.8);
+
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-perspective: 1000;
+      perspective: 1000;
+      -webkit-filter: drop-shadow(0 2px 15px rgba(232, 228, 219, 0.3));
+      filter: drop-shadow(0 2px 15px rgba(232, 228, 219, 0.3));
+      will-change: transform, filter;
+      -webkit-font-smoothing: antialiased;
+
+      opacity: 0;
+
+      transition: opacity 0.6s ease,
+        transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+
+      -webkit-transition: opacity 0.6s ease,
+        -webkit-transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+        -webkit-filter 0.3s ease;
+
+      &:hover {
+        -webkit-filter: drop-shadow(0 4px 20px rgba(232, 228, 219, 0.5));
+        filter: drop-shadow(0 4px 20px rgba(232, 228, 219, 0.5));
+
+        -webkit-transform: translate3d(0, -5px, 0) scale(1.05);
+        transform: translate3d(0, -5px, 0) scale(1.05);
+      }
+
+      &.animate {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0) scale(1);
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+    }
+
+    &--image {
+      padding-bottom: rem(10);
+      transition: transform 0.3s ease;
+      user-select: none;
+
+      .stones__card--item:hover & {
+        transform: scale(1.1);
+      }
+    }
+
+    @media (width <= 970px) {
+      grid-template-columns: repeat(3, auto);
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(2, auto);
+      column-gap: rem(100);
+
+      &--item {
+        max-width: rem(150);
+      }
+    }
+  }
+}
